@@ -78,6 +78,7 @@ function clickBtn(str, loop) {
         // 结算过程可能是可重入的，有时候会崩出多个框
         textStartsWith(str).findOne(1).parent().click()
         while (loop) {
+            sleep(10)
             textStartsWith(str).findOne(1).parent().click()
         }
     } catch (e) {
@@ -108,8 +109,9 @@ function submitOrder() {
     clickBtn("结算(", false)
 
     // 尽可能快的发起支付
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 5; i++) {
         clickBtn("立即支付", true)
+        fixed()
         sleep(100)
     }
     
