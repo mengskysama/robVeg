@@ -78,7 +78,7 @@ function clickBtn(str, loop) {
         // 结算过程可能是可重入的，有时候会崩出多个框
         textStartsWith(str).findOne(1).parent().click()
         while (loop) {
-            sleep(10)
+            sleep(50)
             textStartsWith(str).findOne(1).parent().click()
         }
     } catch (e) {
